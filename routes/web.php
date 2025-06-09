@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\FilmController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
