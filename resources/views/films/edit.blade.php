@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="mb-4">✏️ Modifica Film</h1>
 
-    <form action="{{ route('films.update', $film) }}" method="POST">
+    <form action="{{ route('films.update', $film) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -35,6 +35,17 @@
                     <label class="form-check-label">{{ $genre->name }}</label>
                 </div>
             @endforeach
+        </div>
+
+         <div class="form-control mb-3 d-flex flex-wrap gap-3">
+            <label for="image">Immagine</label>
+            <input id="image" name="image" type="file">
+
+            @if($film->image)
+            <div class="post-image mb-4">
+                <img class="img-fluid" style="width: 9rem" src="{{asset("storage/" . $film->image)}}" alt="Copertina Film non trovata">
+            </div>
+            @endif
         </div>
 
         <button type="submit" class="btn btn-primary">Salva Modifiche</button>

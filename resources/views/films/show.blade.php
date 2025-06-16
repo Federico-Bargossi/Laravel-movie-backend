@@ -6,7 +6,13 @@
 
     <div class="card mb-3">
         <div class="card-body">
-            <h3 class="card-title">{{ $film->title }}</h3>
+            <h3 class="card-title mb-3">Titolo: {{ $film->title }}</h3>
+
+            @if($film->image)
+            <div class="post-image mb-4">
+                <img style="width: 19rem" src="{{asset("storage/" . $film->image)}}" alt="Copertina Film non trovata">
+            </div>
+            @endif
 
             @if ($film->release_date)
                 <p><strong>Data di uscita:</strong> {{ date('d/m/Y', strtotime($film->release_date)) }}</p>

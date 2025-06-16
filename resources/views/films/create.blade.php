@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="mb-4">Aggiungi Nuovo Film</h1>
 
-    <form action="{{ route('films.store') }}" method="POST">
+    <form action="{{ route('films.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -33,6 +33,11 @@
                     </label>
                 @endforeach
             </div>
+        </div>
+
+        <div class="form-control mb-3 d-flex flex-wrap gap-3">
+            <label for="image">Immagine</label>
+            <input id="image" name="image" type="file">
         </div>
 
         <button type="submit" class="btn btn-primary">Salva</button>
